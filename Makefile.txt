@@ -1,0 +1,22 @@
+JFLAGS = -g -cp /home/cs422/stdlib.jar
+JC = javac
+.SUFFIXES: .java .class
+.java.class:
+	$(JC) $(JFLAGS) $*.java
+
+CLASSES = \
+	Barrier.java \
+	Barrier2.java \
+	Body.java \
+	CalcForces.java \
+	CalcForces2.java \
+	NBody.java \
+	Nbody2.java \
+	Sequential.java
+
+all: classes
+
+classes: $(CLASSES:.java=.class)
+
+clean:
+	$(RM) *.class
